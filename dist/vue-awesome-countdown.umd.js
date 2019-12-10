@@ -96,6 +96,45 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
+/***/ "f6fd":
+/***/ (function(module, exports) {
+
+// document.currentScript polyfill by Adam Miller
+// MIT license
+(function (document) {
+  var currentScript = "currentScript",
+      scripts = document.getElementsByTagName('script'); // Live NodeList collection
+  // If browser needs currentScript polyfill, add get currentScript() to the document object
+
+  if (!(currentScript in document)) {
+    Object.defineProperty(document, currentScript, {
+      get: function get() {
+        // IE 6-10 supports script readyState
+        // IE 10+ support stack trace
+        try {
+          throw new Error();
+        } catch (err) {
+          // Find the second match for the "at" string to get file src url from stack.
+          // Specifically works with the format of stack traces in IE.
+          var i,
+              res = (/.*at [^\(]*\((.*):.+:.+\)$/ig.exec(err.stack) || [false])[1]; // For all scripts on the page, if src matches or if ready state is interactive, return the script tag
+
+          for (i in scripts) {
+            if (scripts[i].src == res || scripts[i].readyState == "interactive") {
+              return scripts[i];
+            }
+          } // If no match, return null
+
+
+          return null;
+        }
+      }
+    });
+  }
+})(document);
+
+/***/ }),
+
 /***/ "fb15":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104,25 +143,28 @@ __webpack_require__.r(__webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 // This file is imported into lib/wc client bundles.
-
 if (typeof window !== 'undefined') {
-  var i
-  if ((i = window.document.currentScript) && (i = i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
-    __webpack_require__.p = i[1] // eslint-disable-line
+  if (true) {
+    __webpack_require__("f6fd");
   }
-}
 
-// Indicate to webpack that this file can be concatenated
+  var i;
+
+  if ((i = window.document.currentScript) && (i = i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
+    __webpack_require__.p = i[1]; // eslint-disable-line
+  }
+} // Indicate to webpack that this file can be concatenated
+
+
 /* harmony default export */ var setPublicPath = (null);
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"081bbb42-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/vue-awesome-countdown.vue?vue&type=template&id=8725cbfa&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"75f55fa6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/vue-awesome-countdown.vue?vue&type=template&id=621ae55a&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.tag,_vm._g(_vm._b({tag:"components"},'components',_vm.attrs,false),_vm.$listeners),[_vm._t("prev",null,null,this._self),(_vm.state === 'beforeStart')?_vm._t("before",null,null,this._self):_vm._e(),(_vm.state === 'preheat')?_vm._t("preheat",null,null,this._self):_vm._e(),(_vm.state === 'process' || _vm.state === 'stoped' || _vm.state === 'paused')?_vm._t("process",null,null,this._self):_vm._e(),(_vm.state === 'finised')?_vm._t("finish",null,null,this._self):_vm._e(),_vm._t("default",null,null,this._self)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/vue-awesome-countdown.vue?vue&type=template&id=8725cbfa&
+// CONCATENATED MODULE: ./src/vue-awesome-countdown.vue?vue&type=template&id=621ae55a&
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/vue-awesome-countdown.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--12-0!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/vue-awesome-countdown.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -153,47 +195,47 @@ var staticRenderFns = []
 //
 //
 //
-
 /* harmony default export */ var vue_awesome_countdownvue_type_script_lang_js_ = ({
   name: 'vue-awesome-countdown',
   props: {
     startTime: {
       type: [String, Number, Date],
-      default: null,
-      validator: function(value) {
-        return new Date(value).toString() !== 'Invalid Date'
+      "default": null,
+      validator: function validator(value) {
+        return new Date(value).toString() !== 'Invalid Date';
       }
     },
     endTime: {
       type: [String, Number, Date],
-      default: null,
-      validator: function(value) {
-        return new Date(value).toString() !== 'Invalid Date'
+      "default": null,
+      validator: function validator(value) {
+        return new Date(value).toString() !== 'Invalid Date';
       }
     },
     leftTime: {
       type: Number,
-      default: 0
+      "default": 0
     },
     autoStart: {
       type: Boolean,
-      default: true
+      "default": true
     },
     speed: {
       type: Number,
-      default: 1000,
-      validator: function(value) {
-        return value >= 0
+      "default": 1000,
+      validator: function validator(value) {
+        return value >= 0;
       }
     },
     tag: {
       type: String,
-      default: 'span'
+      "default": 'span'
     }
   },
-  data: function () {
+  data: function data() {
     return {
-      state: 'beforeStart', //beforeStart, stoped, process, finised
+      state: 'beforeStart',
+      //beforeStart, stoped, process, finised
       attrs: {},
       actualStartTime: null,
       actualEndTime: null,
@@ -202,167 +244,174 @@ var staticRenderFns = []
       runTimes: 0,
       usedTime: 0,
       remainingTime: 0
-    }
+    };
   },
   watch: {
-    speed(curSpeed, oldSpeed) {
-      const vm = this
+    speed: function speed(curSpeed, oldSpeed) {
+      var vm = this;
+
       if (curSpeed < 0) {
-        curSpeed = 0
+        curSpeed = 0;
       }
+
       if (curSpeed !== oldSpeed) {
-        clearTimeout(vm.countdownTimer)
-        const now = new Date().getTime()
-        const runTimes = Math.floor((now - vm.actualStartTime) / curSpeed)
-        const nextTime = now % curSpeed
-        vm.runTimes = runTimes
-        vm.$nextTick(() => {
-          vm.countdownTimer = setTimeout(vm.doCountdown, nextTime)
-        })
+        clearTimeout(vm.countdownTimer);
+        var now = new Date().getTime();
+        var runTimes = Math.floor((now - vm.actualStartTime) / curSpeed);
+        var nextTime = now % curSpeed;
+        vm.runTimes = runTimes;
+        vm.$nextTick(function () {
+          vm.countdownTimer = setTimeout(vm.doCountdown, nextTime);
+        });
       }
     }
   },
-  created() {
-    const vm = this
-    const startTime = (vm.startTime && new Date(vm.startTime).getTime()) || 0
-    const firstTime = (startTime && startTime - new Date().getTime()) || 0
+  created: function created() {
+    var vm = this;
+    var startTime = vm.startTime && new Date(vm.startTime).getTime() || 0;
+    var firstTime = startTime && startTime - new Date().getTime() || 0;
+
     if (vm.autoStart) {
-      vm.state = 'preheat'
-      setTimeout(() => {
-        vm.startCountdown(true)
-      }, firstTime)
+      vm.state = 'preheat';
+      setTimeout(function () {
+        vm.startCountdown(true);
+      }, firstTime);
     }
   },
   methods: {
-    startCountdown(restart) {
-      const vm = this
-      if (vm.state !== 'beforeStart' && vm.state !== 'stoped' && vm.state !== 'paused' && !restart) {
-        return
-      }
-      if (restart) {
-        vm.runTimes = 0
-        vm.actualStartTime = null
-        vm.$emit('start', vm)
-        vm.remainingTime = vm.leftTime
-      }
-      let remainingTime = 0
-      if(vm.state === 'stoped') {
-        vm.remainingTime = vm.actualEndTime - new Date().getTime()
-      }
-      if(!vm.actualEndTime) {
-        vm.actualEndTime = vm.endTime || new Date().getTime() + (vm.remainingTime || vm.leftTime)
-      }
-      if(vm.state === 'paused') {
-        vm.actualEndTime = new Date().getTime() + vm.remainingTime
-      }
-      vm.state = 'process'
-      vm.doCountdown()
-    },
-    stopCountdown() {
-      const vm = this
-      if (vm.state !== 'process') {
-        return
-      }
-      clearTimeout(vm.countdownTimer)
-      vm.$emit('stop', vm)
-      vm.state = 'stoped'
-    },
-    pauseCountdown() {
-      const vm = this
-      if (vm.state !== 'process') {
-        return
-      }
-      clearTimeout(vm.countdownTimer)
-      vm.remainingTime = vm.actualEndTime - new Date().getTime()
-      vm.$emit('paused', vm)
-      vm.state = 'paused'
-    },
-    switchCountdown() {
-      const vm = this
-      if (vm.state === 'stoped' || vm.state === 'beforeStart') {
-        return vm.startCountdown()
-      }
-      if (vm.state === 'process') {
-        return vm.stopCountdown()
-      }
-    },
-    finishCountdown() {
-      const vm = this
-      vm.state = 'finised'
-      vm.timeObj = {}
-      vm.usedTime = new Date().getTime() - vm.actualStartTime
-      vm.$emit('finish', vm)
-    },
-    doCountdown() {
-      const vm = this
-      if (vm.state !== 'process') {
-        return
-      }
-      if (!vm.actualStartTime) {
-        vm.actualStartTime = new Date().getTime()
-      }
-      let leftTime = new Date(vm.actualEndTime).getTime() - new Date().getTime()
-      if (leftTime > 0) {
-        const t = {}
-        const leftSeconds = leftTime / 1000
+    startCountdown: function startCountdown(restart) {
+      var vm = this;
 
-        const org = {
+      if (vm.state !== 'beforeStart' && vm.state !== 'stoped' && vm.state !== 'paused' && !restart) {
+        return;
+      }
+
+      if (restart) {
+        Object.assign(vm.$data, vm.$options.data.call(vm));
+        vm.$emit('start', vm);
+      }
+
+      var remainingTime = 0;
+
+      if (vm.state === 'stoped') {
+        vm.remainingTime = vm.actualEndTime - new Date().getTime();
+      }
+
+      if (!vm.actualEndTime) {
+        vm.actualEndTime = vm.endTime || new Date().getTime() + (vm.remainingTime || vm.leftTime);
+      }
+
+      if (vm.state === 'paused') {
+        vm.actualEndTime = new Date().getTime() + vm.remainingTime;
+      }
+
+      vm.state = 'process';
+      vm.doCountdown();
+    },
+    stopCountdown: function stopCountdown() {
+      var vm = this;
+
+      if (vm.state !== 'process') {
+        return;
+      }
+
+      clearTimeout(vm.countdownTimer);
+      vm.$emit('stop', vm);
+      vm.state = 'stoped';
+    },
+    pauseCountdown: function pauseCountdown() {
+      var vm = this;
+
+      if (vm.state !== 'process') {
+        return;
+      }
+
+      clearTimeout(vm.countdownTimer);
+      vm.remainingTime = vm.actualEndTime - new Date().getTime();
+      vm.$emit('paused', vm);
+      vm.state = 'paused';
+    },
+    switchCountdown: function switchCountdown() {
+      var vm = this;
+
+      if (vm.state === 'stoped' || vm.state === 'beforeStart') {
+        return vm.startCountdown();
+      }
+
+      if (vm.state === 'process') {
+        return vm.stopCountdown();
+      }
+    },
+    finishCountdown: function finishCountdown() {
+      var vm = this;
+      vm.state = 'finised';
+      vm.timeObj = {};
+      vm.usedTime = new Date().getTime() - vm.actualStartTime;
+      vm.$emit('finish', vm);
+    },
+    doCountdown: function doCountdown() {
+      var vm = this;
+
+      if (vm.state !== 'process') {
+        return;
+      }
+
+      if (!vm.actualStartTime) {
+        vm.actualStartTime = new Date().getTime();
+      }
+
+      var leftTime = new Date(vm.actualEndTime).getTime() - new Date().getTime();
+
+      if (leftTime > 0) {
+        var t = {};
+        var leftSeconds = leftTime / 1000;
+        var org = {
           d: leftSeconds / 60 / 60 / 24,
-          h: (leftSeconds / 60 / 60) % 24,
-          m: (leftSeconds / 60) % 60,
+          h: leftSeconds / 60 / 60 % 24,
+          m: leftSeconds / 60 % 60,
           s: leftSeconds % 60,
           ms: leftTime % 1000
-        }
-
-        const txt = {
+        };
+        var txt = {
           d: parseInt(org.d, 10).toString(),
-          h: parseInt(org.h, 10)
-            .toString()
-            .padStart(2, 0),
-          m: parseInt(org.m, 10)
-            .toString()
-            .padStart(2, 0),
-          s: parseInt(org.s, 10)
-            .toString()
-            .padStart(2, 0),
+          h: parseInt(org.h, 10).toString().padStart(2, 0),
+          m: parseInt(org.m, 10).toString().padStart(2, 0),
+          s: parseInt(org.s, 10).toString().padStart(2, 0),
           ms: org.ms.toString().padStart(3, 0)
-        }
-
-        const ceil = {
+        };
+        var ceil = {
           d: parseInt(Math.ceil(leftSeconds / 60 / 60 / 24), 10),
           h: parseInt(Math.ceil(leftSeconds / 60 / 60), 10),
           m: parseInt(Math.ceil(leftSeconds / 60), 10),
           s: parseInt(Math.ceil(leftSeconds), 10)
-        }
-
-        t.endTime = vm.actualEndTime
-        t.speed = vm.speed
-        vm.usedTime = new Date().getTime() - vm.actualStartTime
-        t.leftTime = leftTime
-        vm.remainingTime = leftTime
+        };
+        t.endTime = vm.actualEndTime;
+        t.speed = vm.speed;
+        vm.usedTime = new Date().getTime() - vm.actualStartTime;
+        t.leftTime = leftTime;
+        vm.remainingTime = leftTime;
         vm.timeObj = Object.assign({}, t, txt, {
-          org,
-          ceil
-        })
-        vm.timeObj.org = org
-        vm.timeObj.ceil = ceil
-        vm.$emit('process', vm)
+          org: org,
+          ceil: ceil
+        });
+        vm.timeObj.org = org;
+        vm.timeObj.ceil = ceil;
+        vm.$emit('process', vm);
       } else {
-        vm.finishCountdown()
-        return
+        vm.finishCountdown();
+        return;
       }
 
-      let nextSpeed =
-        vm.speed +
-        (vm.actualStartTime + vm.runTimes++ * vm.speed - new Date().getTime())
+      var nextSpeed = vm.speed + (vm.actualStartTime + vm.runTimes++ * vm.speed - new Date().getTime());
+
       if (nextSpeed < 0) {
-        nextSpeed = nextSpeed + vm.speed
+        nextSpeed = nextSpeed + vm.speed;
       }
-      vm.countdownTimer = setTimeout(vm.doCountdown, nextSpeed)
+
+      vm.countdownTimer = setTimeout(vm.doCountdown, nextSpeed);
     }
   }
 });
-
 // CONCATENATED MODULE: ./src/vue-awesome-countdown.vue?vue&type=script&lang=js&
  /* harmony default export */ var src_vue_awesome_countdownvue_type_script_lang_js_ = (vue_awesome_countdownvue_type_script_lang_js_); 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
@@ -479,21 +528,19 @@ var component = normalizeComponent(
   
 )
 
-component.options.__file = "vue-awesome-countdown.vue"
 /* harmony default export */ var vue_awesome_countdown = (component.exports);
 // CONCATENATED MODULE: ./src/vue-awesome-countdown.js
 
-
-const vac = {
-  install: function (Vue, options) {
-    const name = options || 'vac'
-    Vue.component(name, vue_awesome_countdown)
-    Vue.component('countdown', vue_awesome_countdown)
+var vac = {
+  install: function install(Vue, options) {
+    var name = options || 'vac';
+    Vue.component(name, vue_awesome_countdown);
+    Vue.component('countdown', vue_awesome_countdown);
   }
-}
+};
 
 if (typeof window !== "undefined" && window.Vue) {
-  window.Vue.use(vac)
+  window.Vue.use(vac);
 }
 
 /* harmony default export */ var src_vue_awesome_countdown = (vac);
@@ -501,7 +548,6 @@ if (typeof window !== "undefined" && window.Vue) {
 
 
 /* harmony default export */ var entry_lib = __webpack_exports__["default"] = (src_vue_awesome_countdown);
-
 
 
 /***/ })
