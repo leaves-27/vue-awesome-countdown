@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vue-awesome-countdown
 [![npm version](https://badge.fury.io/js/vue-awesome-countdown.svg)](https://badge.fury.io/js/vue-awesome-countdown)
 [![Gzip Size](http://img.badgesize.io/https://unpkg.com/vue-awesome-countdown@latest/dist/vue-awesome-countdown.umd.min.js?compression=gzip&style=flat-square)](https://unpkg.com/vue-awesome-countdown)
@@ -201,3 +202,6 @@ The methods can be accesse through `slot-scop` or `$refs`.
 ### MIT License
 
 ### Copyright &copy; 2018 LinQuan.
+=======
+vue-awesome-countdown
+>>>>>>> e86c2e8f901c93c6c7e6567da6d9534ba58bd8c3

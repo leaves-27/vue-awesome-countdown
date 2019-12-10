@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d074698-f4d0-4a78-975b-8e1d5ef17193" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/dist/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/demo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/vue-awesome-countdown.common.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/vue-awesome-countdown.common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/vue-awesome-countdown.common.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/vue-awesome-countdown.common.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/vue-awesome-countdown.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/vue-awesome-countdown.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/vue-awesome-countdown.umd.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/vue-awesome-countdown.umd.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/vue-awesome-countdown.umd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/vue-awesome-countdown.umd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/vue-awesome-countdown.umd.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/vue-awesome-countdown.umd.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="6d074698-f4d0-4a78-975b-8e1d5ef17193" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -22,11 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
               <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vue.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -86,6 +86,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -116,12 +117,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575971226782</updated>
-      <workItem from="1575971228388" duration="1588000" />
+      <workItem from="1575971228388" duration="2128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1588000" />
+    <option name="totallyTimeSpent" value="2128000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="166" y="218" width="1373" height="779" extended-state="0" />
@@ -173,13 +174,6 @@
     <entry file="file://$PROJECT_DIR$/vue.conf.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/vue-awesome-countdown.common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4004">
@@ -191,6 +185,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
         </state>
       </provider>
     </entry>
